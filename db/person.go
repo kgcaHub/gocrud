@@ -8,7 +8,7 @@ import (
 )
 
 //Insert a person
-func Insert(person entity.Person) {
+func PersonCreate(person entity.Person) {
 	NewConnection()
 
 	_, err := cxdb.Exec("NOR.Person_Insert ?,?", person.Id, person.Name)

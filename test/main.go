@@ -8,5 +8,5 @@ func main() {
 	person.Id = 123
 	person.Name = "Klinsmann"
 
-	db.Insert(person)
+	db.PersonCreate(person)
 }
