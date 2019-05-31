@@ -1,5 +1,117 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body><h1>Hola</h1></body>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"  rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ul.sidenav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 25%;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        ul.sidenav li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        ul.sidenav li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        ul.sidenav li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        div.content {
+            margin-left: 25%;
+            padding: 1px 16px;
+            height: 1000px;
+        }
+
+        @media screen and (max-width: 900px) {
+            ul.sidenav {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            ul.sidenav li a {
+                float: left;
+                padding: 15px;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            ul.sidenav li a {
+                text-align: center;
+                float: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="nav" class="sidenav">
+        <li><a href="#" onclick="goto('person.html');">Person</a></li>
+    </ul>
+
+    <div id="container" class="content">
+
+    </div>
+
+    <script>
+
+        function goto(url) {
+
+            var _li = event.target;
+
+            var req = new XMLHttpRequest();
+            req.open('GET', url, true);
+            req.onreadystatechange = function () {
+                if (req.readyState === XMLHttpRequest.DONE) {
+                    switch (req.status) {
+                        case 200:
+                            var _container = document.getElementById("container");
+                            _container.innerHTML = req.responseText;
+
+                            removeAllActives();
+
+                            _li.classList.add("active");
+
+                            break;
+                    }
+                }
+            };
+            req.send(null);
+        }
+
+        function removeAllActives() {
+            var lis = document.getElementById("nav").getElementsByTagName("li");
+            [].forEach.call(lis, function (li) {
+                li.classList.remove("active");
+            });
+        }
+    </script>
+</body>
+
 </html>

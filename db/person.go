@@ -18,3 +18,34 @@ func PersonCreate(person entity.Person) {
 
 	CloseConnection()
 }
+
+func PersonRead() {
+	NewConnection()
+
+	
+
+	CloseConnection()
+}
+
+//Insert a person
+func PersonUpdate(person entity.Person) {
+	NewConnection()
+
+	_, err := cxdb.Exec("NOR.Person_Update ?,?", person.Id, person.Name)
+	if err != nil {
+		fmt.Println(" Update error:", err.Error())
+	}
+
+	CloseConnection()
+}
+
+func PersonDelete(person entity.Person) {
+	NewConnection()
+
+	_, err := cxdb.Exec("NOR.Person_Delete ?", person.Id)
+	if err != nil {
+		fmt.Println(" Delete error:", err.Error())
+	}
+
+	CloseConnection()
+}
