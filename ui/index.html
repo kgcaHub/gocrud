@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"  rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" rel="stylesheet" />
     <style>
         body {
             margin: 0;
@@ -67,6 +67,8 @@
             }
         }
     </style>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <scritp src="person.js"></scritp>
 </head>
 
 <body>
@@ -79,7 +81,19 @@
 
     </div>
 
+    <!-- <script>
+    import person from "@/person.vue";
+
+    export default{
+        name:"index",
+        components:{
+            person
+        }
+    };
+    </script> -->
+
     <script>
+        // import { Person } from "./person.js";
 
         function goto(url) {
 
@@ -98,6 +112,10 @@
 
                             _li.classList.add("active");
 
+                            debugger;
+
+                            ReadPerson();
+
                             break;
                     }
                 }
@@ -110,6 +128,23 @@
             [].forEach.call(lis, function (li) {
                 li.classList.remove("active");
             });
+        }
+
+        function ReadPerson() {
+            debugger;
+            var req = new XMLHttpRequest();
+            req.open('GET', '/person/read', true);
+            req.onreadystatechange = function () {
+                if (req.readyState === XMLHttpRequest.DONE) {
+                    debugger;
+                    var _jsonResponse = {};
+
+                    if (req.response !== "") {
+                        _jsonResponse = JSON.parse(req.response);
+                    }
+                }
+            };
+            req.send(null);
         }
     </script>
 </body>
