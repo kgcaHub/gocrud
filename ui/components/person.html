@@ -1,0 +1,50 @@
+<div>
+    <header>
+        <h1 style="text-align: center">Person crud</h1>
+    </header>
+    <div class="columns">
+        <div class="column is-half">
+            <div class="field">
+                <label class="label">Id</label>
+                <div class="control">
+                    <input id="txtId" class="input" type="text" />
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input id="txtName" class="input" type="text" />
+                </div>
+            </div>
+            <div class="field is-grouped">
+                <p class="control">
+                    <a class="button" onclick="onBtnClick('create')">
+                        Create
+                    </a>
+                </p>
+                <p class="control">
+                    <a class="button">
+                        Update
+                    </a>
+                </p>
+                <p class="control">
+                    <a class="button">
+                        Delete
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="column is-half">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody id="tbPersons">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

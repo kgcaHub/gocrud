@@ -67,85 +67,16 @@
             }
         }
     </style>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <scritp src="person.js"></scritp>
 </head>
 
 <body>
-
     <ul id="nav" class="sidenav">
-        <li><a href="#" onclick="goto('person.html');">Person</a></li>
+        <li><a href="#" onclick="goto('/components/person.html');">Person</a></li>
     </ul>
 
     <div id="container" class="content">
-
     </div>
-
-    <!-- <script>
-    import person from "@/person.vue";
-
-    export default{
-        name:"index",
-        components:{
-            person
-        }
-    };
-    </script> -->
-
-    <script>
-        // import { Person } from "./person.js";
-
-        function goto(url) {
-
-            var _li = event.target;
-
-            var req = new XMLHttpRequest();
-            req.open('GET', url, true);
-            req.onreadystatechange = function () {
-                if (req.readyState === XMLHttpRequest.DONE) {
-                    switch (req.status) {
-                        case 200:
-                            var _container = document.getElementById("container");
-                            _container.innerHTML = req.responseText;
-
-                            removeAllActives();
-
-                            _li.classList.add("active");
-
-                            debugger;
-
-                            ReadPerson();
-
-                            break;
-                    }
-                }
-            };
-            req.send(null);
-        }
-
-        function removeAllActives() {
-            var lis = document.getElementById("nav").getElementsByTagName("li");
-            [].forEach.call(lis, function (li) {
-                li.classList.remove("active");
-            });
-        }
-
-        function ReadPerson() {
-            debugger;
-            var req = new XMLHttpRequest();
-            req.open('GET', '/person/read', true);
-            req.onreadystatechange = function () {
-                if (req.readyState === XMLHttpRequest.DONE) {
-                    debugger;
-                    var _jsonResponse = {};
-
-                    if (req.response !== "") {
-                        _jsonResponse = JSON.parse(req.response);
-                    }
-                }
-            };
-            req.send(null);
-        }
+    <script type="module" src="main.js">
     </script>
 </body>
 

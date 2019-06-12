@@ -21,7 +21,7 @@ func PersonCreate(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Decoding error:", err.Error())
 	}
-
+	fmt.Println(person)
 	db.PersonCreate(person)
 }
 
