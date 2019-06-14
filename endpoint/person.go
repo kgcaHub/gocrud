@@ -11,7 +11,7 @@ import (
 
 func PersonCreate(w http.ResponseWriter, r *http.Request) {
 
-	enableCors(&w)
+	//enableCors(&w)
 
 	var person entity.Person
 
@@ -21,13 +21,13 @@ func PersonCreate(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("Decoding error:", err.Error())
 	}
-	fmt.Println(person)
+
 	db.PersonCreate(person)
 }
 
 func PersonRead(w http.ResponseWriter, r *http.Request) {
 
-	enableCors(&w)
+	//enableCors(&w)
 
 	persons := db.PersonRead()
 
@@ -36,7 +36,7 @@ func PersonRead(w http.ResponseWriter, r *http.Request) {
 
 func PersonUpdate(w http.ResponseWriter, r *http.Request) {
 
-	enableCors(&w)
+	//enableCors(&w)
 
 	var person entity.Person
 
@@ -52,7 +52,7 @@ func PersonUpdate(w http.ResponseWriter, r *http.Request) {
 
 func PersonDelete(w http.ResponseWriter, r *http.Request) {
 
-	enableCors(&w)
+	//enableCors(&w)
 
 	var person entity.Person
 

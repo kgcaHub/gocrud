@@ -25,12 +25,20 @@ window.goto = function goto(url) {
   req.send(null);
 }
 
-window.onBtnClick = function onBtnClick(action){
+window.onBtnClick = function onBtnClick(action) {
 
-  switch(action)
-  {
+  switch (action) {
     case "create":
       Person.Create();
+      break;
+    case "read":
+      Person.Read();
+      break;
+    case "update":
+      Person.Update();
+      break;
+    case "delete":
+      Person.Delete();
       break;
   }
 

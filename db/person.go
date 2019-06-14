@@ -49,7 +49,6 @@ func PersonRead() []entity.Person {
 //Update a person
 func PersonUpdate(person entity.Person) {
 	NewConnection()
-
 	_, err := cxdb.Exec("CRUD.Person_Update ?,?", person.Id, person.Name)
 	if err != nil {
 		fmt.Println(" Update error:", err.Error())
